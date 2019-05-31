@@ -10,7 +10,7 @@ class Timer extends React.Component {
     currentInterval: Pt.number.isRequired,
   }
 
-  static state = {
+  state = {
     currentTime: 0,
   }
 

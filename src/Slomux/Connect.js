@@ -2,8 +2,9 @@ import React from 'react';
 import SlomuxContext from './Context';
 
 export default (mapStateToProps, mapDispatchToProps) => (Component) => {
-  store = this.context;
   class Connect extends React.Component {
+    store = this.context
+
     componentDidMount() {
       this.unsubscribe = this.store.subscribe(this.handleChange);
     }
