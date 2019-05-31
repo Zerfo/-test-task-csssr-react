@@ -15,4 +15,5 @@ Slomux — упрощённая, сломанная реализация Flux.
 #### Решение:
 
 Ветка master - решение задания с комментариями.
+
 Решение на [codepen.io](https://codepen.io/zerfo/pen/MdZYbN) - https://codepen.io/zerfo/pen/MdZYbN
