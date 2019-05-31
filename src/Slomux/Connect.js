@@ -1,10 +1,11 @@
-import React from "react";
-import SlomuxContext from "./Context";
+import React from 'react';
+import SlomuxContext from './Context';
 
-export default (mapStateToProps, mapDispatchToProps) => Component => {
+export default (mapStateToProps, mapDispatchToProps) => (Component) => {
+  store = this.context;
   class Connect extends React.Component {
     componentDidMount() {
-      this.unsubscribe = this.context.subscribe(this.handleChange);
+      this.unsubscribe = this.store.subscribe(this.handleChange);
     }
 
     // Удаление subscription
@@ -14,19 +15,18 @@ export default (mapStateToProps, mapDispatchToProps) => Component => {
 
     // Лучше использовать setState вместо forceUpdate
     // Это даст возможность для оптимизации, когда повторный рендеринг не нужен
-    handleChange = () => this.setState({});
+    handleChange = () => this.setState({})
 
     render() {
       // Проверка mapStateToProps и mapDispatchToProps
       // На случай если переданные параметры не являются функциями
-      if (typeof mapStateToProps !== "function") mapStateToProps = () => {};
-      if (typeof mapDispatchToProps !== "function")
-        mapDispatchToProps = () => {};
+      if (typeof mapStateToProps !== 'function') mapStateToProps = () => {};
+      if (typeof mapDispatchToProps !== 'function') mapDispatchToProps = () => {};
 
       return (
         <Component
-          {...mapStateToProps(this.context.getState(), this.props)}
-          {...mapDispatchToProps(this.context.dispatch, this.props)}
+          {...mapStateToProps(this.store.getState(), this.props)}
+          {...mapDispatchToProps(this.store.dispatch, this.props)}
           {...this.props}
         />
       );

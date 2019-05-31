@@ -1,6 +1,6 @@
-import createStore from "./Slomux/CreateStore";
+import createStore from './Slomux/CreateStore';
 
-import { CHANGE_INTERVAL } from "./constants";
+import { CHANGE_INTERVAL } from './constants';
 
 const initialState = 0;
 

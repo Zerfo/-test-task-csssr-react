@@ -3,12 +3,12 @@ export default (reducer, initialState) => {
   const listeners = [];
 
   const getState = () => currentState;
-  const dispatch = action => {
+  const dispatch = (action) => {
     currentState = reducer(currentState, action);
     listeners.forEach(listener => listener());
   };
 
-  const subscribe = listener => {
+  const subscribe = (listener) => {
     listeners.push(listener);
 
     // Метод отписки

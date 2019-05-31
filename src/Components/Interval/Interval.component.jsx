@@ -1,6 +1,12 @@
-import React from "react";
+import React from 'react';
+import Pt from 'prop-types';
 
 class Interval extends React.Component {
+  static propTypes = {
+    currentInterval: Pt.number.isRequired,
+    changeInterval: Pt.func.isRequired,
+  }
+
   render() {
     const { currentInterval, changeInterval } = this.props;
     return (
